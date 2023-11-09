@@ -29,6 +29,7 @@ import { FacebookComponent } from './components/facebook/facebook.component';
 import { YoutubePipe } from './Pipes/youtube.pipe';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { YouComponent } from './components/you/you.component';
+import { NoticiasComponent } from './components/noticias/noticias.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { YouComponent } from './components/you/you.component';
     FacebookComponent,
     YouComponent,
     YoutubePipe,
+    NoticiasComponent,
     
   ],
 

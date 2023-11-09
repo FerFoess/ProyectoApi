@@ -25,13 +25,16 @@ import { RedesComponent } from './components/redes/redes.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { FacebookComponent } from './components/facebook/facebook.component';
 import { YouComponent } from './components/you/you.component';
+import { NoticiasComponent } from './components/noticias/noticias.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/usuarios', 
     pathMatch: 'full'
-  },
+  },{path: 'noti',
+    component: NoticiasComponent
+      },
   
   // Rutas para Usuarios
   {

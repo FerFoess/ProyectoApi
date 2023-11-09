@@ -1,4 +1,4 @@
-
+<app-login></app-login>
 
 <!DOCTYPE html>
 <html>
@@ -9,9 +9,9 @@
   <div id="my-signin2"></div>
   <script>
     function onSuccess(googleUser) {
-
       var profile = googleUser.getBasicProfile();
 
+      // Redirige a la página deseada después de iniciar sesión con Google
       window.location.href = 'localhost:4200/books';
     }
 

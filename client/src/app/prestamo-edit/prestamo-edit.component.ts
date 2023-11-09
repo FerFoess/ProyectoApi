@@ -5,7 +5,7 @@ import { PrestamosService } from 'src/app/services/prestamos.service';
 
 @Component({
   selector: 'app-prestamo-edit',
-  templateUrl: './prestamo-edit.component.html',
+  templateUrl:'./prestamo-edit.component.html',
   styleUrls: ['./prestamo-edit.component.css']
 })
 export class PrestamoEditComponent implements OnInit {
