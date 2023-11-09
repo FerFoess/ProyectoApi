@@ -1,0 +1,23 @@
+<section class="vh-100" style="background-color: aliceblue;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="https://th.bing.com/th/id/OIG.P7K5zfLorgSgiSCvMk3L?w=270&h=270&c=6&r=0&o=5&dpr=1.5&pid=ImgGn"
+                alt="login form" class="img-fluid" style="border-radius: 1rem;" />
+              <div class="d-flex justify-content-end"></div>
+              
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                        
+                        <span class="h1 fw-bold mb-0"> Bienvenido a Biblioteca</span>
+                      </div>
+                      <div class="d-flex justify-content-end"></div>
+              <button routerLink="/red" class="ml-auto">Iniciar sesión</button>
+              <button *ngIf="mostrarOpcionExtra"  routerLink="/ruta-opcion-extra" data-mdb-ripple-color="dark">Opción Extra</button>
+              </div>

@@ -1,3 +1,4 @@
+import { SocialAuthService, FacebookLoginProvider } from '@abacritt/angularx-social-login';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+  constructor(private authService: SocialAuthService) { }
+
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
 }

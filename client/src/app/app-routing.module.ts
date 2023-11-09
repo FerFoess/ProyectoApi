@@ -19,6 +19,12 @@ import { UsuarioListComponent } from './components/usuario-list/usuario-list.com
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component'; 
 
 import { MapaComponent } from './components/mapa/mapa.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { LoginComponent } from './components/login/login.component';
+import { RedesComponent } from './components/redes/redes.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { FacebookComponent } from './components/facebook/facebook.component';
+import { YouComponent } from './components/you/you.component';
 
 const routes: Routes = [
   {
@@ -82,13 +88,23 @@ const routes: Routes = [
     path: 'multas/edit/:idMulta',
     component: MultaFormComponent
   },
-  { path: 'mapa', component: MapaComponent }
+  { path: 'mapa', component: MapaComponent },
+  
+  { path: 'login',component:LoginComponent},
+  { path: 'red',component:RedesComponent},
+  {path:'inicio',component:InicioComponent},
+  {path:'face',component:FacebookComponent},
+  {path:'you',component:YouComponent}
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+  
 })
 export class AppRoutingModule { }
+
+
 
 

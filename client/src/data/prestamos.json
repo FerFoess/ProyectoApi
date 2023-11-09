@@ -1,3 +1,1 @@
-{
-  
-}
+{"web":{"client_id":"1057703587536-t8f5ba4a50br0gehgjsukb8c5odjfqiu.apps.googleusercontent.com","project_id":"registro-401904","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"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","redirect_uris":["http://localhost:4200/books"],"javascript_origins":["http://localhost:4200"]}}

@@ -9,6 +9,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { PrestamosListComponent } from './components/prestamos-list/prestamos-list.component';
 
 // Services
+import { YoutubeService } from './services/youtube.service';
 import { PrestamosService } from './services/prestamos.service';
 import { PrestamoFormComponent } from './components/prestamo-form/prestamo-form.component';
 import { PrestamoEditComponent } from './prestamo-edit/prestamo-edit.component';
@@ -22,7 +23,12 @@ import { LoginComponent } from './components/login/login.component';
 import { NavigationBComponent } from './components/navigation-b/navigation-b.component';
 import { NavigationUComponent } from './components/navigation-u/navigation-u.component';
 import { MapaComponent } from './components/mapa/mapa.component';
-
+import { RedesComponent } from './components/redes/redes.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { FacebookComponent } from './components/facebook/facebook.component';
+import { YoutubePipe } from './Pipes/youtube.pipe';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { YouComponent } from './components/you/you.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,16 +45,43 @@ import { MapaComponent } from './components/mapa/mapa.component';
     LoginComponent,
     NavigationBComponent,
     NavigationUComponent,
-    MapaComponent
+    MapaComponent,
+    RedesComponent,
+    InicioComponent,
+    FacebookComponent,
+    YouComponent,
+    YoutubePipe,
+    
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SocialLoginModule
+
   ],
   providers: [
-    PrestamosService
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider("1057703587536-jcpb246oe7qo54cbt0jq73d7lp97mdmq.apps.googleusercontent.com")
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('875179227556103')
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })

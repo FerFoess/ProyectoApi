@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="google-signin-client_id" content="1057703587536-jcpb246oe7qo54cbt0jq73d7lp97mdmq.apps.googleusercontent.com">
+</head>
+<body>
+  <div id="my-signin2"></div>
+  <script>
+    function onSuccess(googleUser) {
+
+      var profile = googleUser.getBasicProfile();
+
+      window.location.href = 'localhost:4200/books';
+    }
+
+    function onFailure(error) {
+      console.log(error);
+    }
+
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>
