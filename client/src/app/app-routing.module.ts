@@ -26,6 +26,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { FacebookComponent } from './components/facebook/facebook.component';
 import { YouComponent } from './components/you/you.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
+import { MapScreenComponent } from './maps/screens/map-screen/map-screen.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,9 @@ const routes: Routes = [
   {
     path: 'usuarios/add', 
     component: UsuarioFormComponent 
+  },
+  {
+    path:'maps',component: MapScreenComponent
   },
   {
     path: 'usuarios/edit/:idUsuario',

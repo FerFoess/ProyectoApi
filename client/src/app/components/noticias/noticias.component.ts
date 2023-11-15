@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NoticiasComponent implements OnInit {
   noticias: any[] = [];
-  secciones: string[] = ['business', 'technology', 'health']; 
+  secciones: string[] = ['busines', 'technology', 'health']; 
   seccionSeleccionada: string = 'business'; 
   busqueda: string = '';
 

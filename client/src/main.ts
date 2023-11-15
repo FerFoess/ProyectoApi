@@ -2,7 +2,14 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 
+import Mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+ 
+Mapboxgl.accessToken = 'pk.eyJ1IjoiZm9lc3MiLCJhIjoiY2xvemN2bGN6MGE5NjJqbjNhdWg5MnB1NyJ9.u_qtofzqpJxPzB6pM2xm0A';
 
+if(! navigator.geolocation){
+  alert('Navegador no soporta la geolocalizacion');
+  throw new Error('Navegador no soporta Geolocalizacion');
+}
 
 
 platformBrowserDynamic().bootstrapModule(AppModule)

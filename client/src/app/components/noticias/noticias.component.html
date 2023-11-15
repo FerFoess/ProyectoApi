@@ -1,20 +1,25 @@
-<div class="noticias-container">
+<div class="container noticias-container">
     <h2 class="titulo-noticias">Noticias</h2>
   
     <!-- Selección de sección -->
-    <select [(ngModel)]="seccionSeleccionada" (change)="cambiarSeccion(seccionSeleccionada)">
+    <select class="form-select" [(ngModel)]="seccionSeleccionada" (change)="cambiarSeccion(seccionSeleccionada)">
       <option *ngFor="let seccion of secciones" [value]="seccion">{{ seccion }}</option>
     </select>
   
     <!-- Barra de búsqueda -->
-    <input [(ngModel)]="busqueda" (keyup.enter)="buscarNoticias()" placeholder="Buscar noticias" />
-  
-    <ul class="noticias-grid">
-      <li *ngFor="let noticia of noticias" class="noticia-item">
-        <h3>{{ noticia.title }}</h3>
-        <p>{{ noticia.description }}</p>
-        <a [href]="noticia.url" target="_blank">Leer más</a>
-        <img [src]="noticia.urlToImage" alt="Imagen de la noticia" />
+    <br>
+    <input class="form-control" [(ngModel)]="busqueda" (keyup.enter)="buscarNoticias()" placeholder="Buscar noticias" />
+  <br>
+    <ul class="row g-2 noticias-grid">
+      <li *ngFor="let noticia of noticias" class="col-md-5">
+        <div class="card noticia-item">
+          <div class="card-body">
+            <h3 class="card-title">{{ noticia.title }}</h3>
+            <p class="card-text">{{ noticia.description }}</p>
+            <a [href]="noticia.url" target="_blank" class="btn btn-primary">Leer más</a>
+          </div>
+          <img [src]="noticia.urlToImage" alt="Imagen de la noticia" class="card-img-top" />
+        </div>
       </li>
     </ul>
-  </div>
+</div>

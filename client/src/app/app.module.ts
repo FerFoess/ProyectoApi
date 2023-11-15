@@ -30,6 +30,7 @@ import { YoutubePipe } from './Pipes/youtube.pipe';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { YouComponent } from './components/you/you.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
+import { MapsModule } from './maps/maps.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +62,8 @@ import { NoticiasComponent } from './components/noticias/noticias.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    MapsModule
 
   ],
   providers: [
