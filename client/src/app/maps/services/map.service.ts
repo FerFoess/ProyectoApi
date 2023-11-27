@@ -1,33 +1,28 @@
 import { Injectable } from '@angular/core';
-import { LngLatLike, Map } from 'mapbox-gl';
+import { Map, Marker, LngLatLike } from 'mapbox-gl';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class MapService {
   private map?: Map;
 
-  get isMapReady() {
+  get isMapReady(){
     return !!this.map;
   }
 
-  constructor(){}
-
-  setMap(map: Map) {
+  setMap(map: Map){
     this.map = map;
   }
 
   flyTo(coords: LngLatLike){
-    if (!this.isMapReady) {
-      console.error('El mapa no está inicializado');
-      return false;
-    }
+    if(!this.isMapReady) throw Error ('El mapa no esta inicializado');
 
     this.map?.flyTo({
       zoom: 14,
-      center: coords,
+      center: coords
     });
-
-    return true; 
   }
+
+  
 }

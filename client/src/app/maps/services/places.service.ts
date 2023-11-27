@@ -15,16 +15,9 @@ export class PlacesService {
   constructor(private http: HttpClient) {
     this.getUserLocation();
   }
+  
 
   public async getUserLocation(): Promise<[number,number]> {
-      
-      const longitude = -100.930289;
-      const latitude = 21.1673154;
-
-      this.useLocation = [longitude, latitude];
-      return this.useLocation;
-        
-    
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         ({ coords }) => {
@@ -38,4 +31,6 @@ export class PlacesService {
       );
     });
   }
+
+  
 }

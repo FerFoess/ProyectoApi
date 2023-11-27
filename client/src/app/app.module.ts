@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -31,6 +31,18 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, So
 import { YouComponent } from './components/you/you.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { MapsModule } from './maps/maps.module';
+import { PrincipalBooksComponent } from './components/principal-books/principal-books.component';
+import { PrincipalListComponent } from './components/principal-list/principal-list.component';
+import { PrincipalItemComponent } from './components/principal-item/principal-item.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+
+
+//externals
+import { NgxPayPalModule } from 'ngx-paypal';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +66,11 @@ import { MapsModule } from './maps/maps.module';
     YouComponent,
     YoutubePipe,
     NoticiasComponent,
+    PrincipalBooksComponent,
+    PrincipalListComponent,
+    PrincipalItemComponent,
+    CartComponent,
+    CartItemComponent,
     
   ],
 
@@ -63,7 +80,10 @@ import { MapsModule } from './maps/maps.module';
     HttpClientModule,
     FormsModule,
     SocialLoginModule,
-    MapsModule
+    MapsModule,
+    NgxPayPalModule,
+    NgbModule,
+    NgxSpinnerModule
 
   ],
   providers: [
@@ -87,6 +107,7 @@ import { MapsModule } from './maps/maps.module';
       } as SocialAuthServiceConfig,
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

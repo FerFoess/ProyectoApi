@@ -27,6 +27,7 @@ import { FacebookComponent } from './components/facebook/facebook.component';
 import { YouComponent } from './components/you/you.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { MapScreenComponent } from './maps/screens/map-screen/map-screen.component';
+import { PrincipalBooksComponent } from './components/principal-books/principal-books.component';
 
 const routes: Routes = [
   {
@@ -101,7 +102,9 @@ const routes: Routes = [
   { path: 'red',component:RedesComponent},
   {path:'inicio',component:InicioComponent},
   {path:'face',component:FacebookComponent},
-  {path:'you',component:YouComponent}
+  {path:'you',component:YouComponent},
+  {path: 'libros',component:PrincipalBooksComponent},
+  
 
 ];
 
