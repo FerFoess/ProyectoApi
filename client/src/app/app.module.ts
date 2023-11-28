@@ -87,7 +87,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
   ],
   providers: [
+    
     {
+      
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,

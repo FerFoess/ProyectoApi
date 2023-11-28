@@ -2,3 +2,23 @@
     color: red;
     cursor: pointer;
 }
+
+/* Estilos personalizados para el botón de PayPal */
+
+/* Selector de clase o ID específico si lo tienes */
+ngx-paypal button.paypal-button {
+    /* Cambiar el color de fondo */
+    background-color: #003087; /* Color de fondo deseado */
+  
+    /* Cambiar el color del texto */
+    color: #ffffff; /* Color de texto deseado */
+  
+    /* Añadir un poco de espacio alrededor del botón */
+    padding: 10px 20px;
+  
+    /* Cambiar el tamaño del texto y del botón */
+    font-size: 16px;
+  }
+  
+  /* Otras personalizaciones si son necesarias */
+  

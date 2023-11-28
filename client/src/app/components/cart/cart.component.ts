@@ -3,8 +3,9 @@ import { CartItemModel } from 'src/app/models/cart-item-model';
 import { Product } from 'src/app/models/product';
 import { MensajeService } from 'src/app/services/mensaje.service';
 import { StorageService } from 'src/app/services/storage.service';
-import { IPayPalConfig } from 'ngx-paypal';
+import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { environment } from 'src/environments/environment';
+import { NgxSpinnerService, Spinner } from 'ngx-spinner';
 
 @Component({
   selector: 'app-cart',
@@ -14,16 +15,17 @@ import { environment } from 'src/environments/environment';
 export class CartComponent implements OnInit {
   cartItems: CartItemModel[] = [];
   total = 0;
+
   public payPalConfig?: IPayPalConfig;
 
   constructor(
     private mensajeService: MensajeService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
     this.initConfig();
-    // Verificar si hay un carrito existente en el servicio de almacenamiento
     if (this.storageService.existCart()) {
       this.cartItems = this.storageService.getCart();
     }
@@ -35,36 +37,28 @@ export class CartComponent implements OnInit {
   // Configuración de PayPal
   private initConfig(): void {
     this.payPalConfig = {
-      currency: 'MEX',
-      clientId: environment.clientId,
-      createOrderOnClient: (data) => ({
-        intent: 'CAPTURE',
-        purchase_units: [
-          {
-            amount: {
-              currency_code: 'EUR',
-              value: '9.99',
-              breakdown: {
-                item_total: {
-                  currency_code: 'EUR',
-                  value: '9.99',
+      currency: 'MXN',
+      clientId:
+        'AQthlxwUaPw0CSTPLcu5qNPRA_-iVSth_fC8fVF4rv6MAKmgpN-Mk0C457pi6SjAudaioiBhkUFE5PGh',
+      createOrderOnClient: (data) =>
+        <ICreateOrderRequest>{
+          intent: 'CAPTURE',
+          purchase_units: [
+            {
+              amount: {
+                currency_code: 'MXN',
+                value: this.getTotal().toString(),
+                breakdown: {
+                  item_total: {
+                    currency_code: 'MXN',
+                    value: this.getTotal().toString(),
+                  },
                 },
               },
+              items: this.getItemsList(),
             },
-            items: [
-              {
-                name: 'Enterprise Subscription',
-                quantity: '1',
-                category: 'DIGITAL_GOODS',
-                unit_amount: {
-                  currency_code: 'EUR',
-                  value: '9.99',
-                },
-              },
-            ],
-          },
-        ],
-      }),
+          ],
+        },
       advanced: {
         commit: 'true',
       },
@@ -72,7 +66,8 @@ export class CartComponent implements OnInit {
         label: 'paypal',
         layout: 'vertical',
       },
-      onApprove: (data, actions) => {
+      onApprove: (data: any, actions: any) => {
+        this.spinner.show();
         console.log(
           'onApprove - transaction was approved, but not authorized',
           data,
@@ -90,6 +85,7 @@ export class CartComponent implements OnInit {
           'onClientAuthorization - you should probably inform your server about completed transaction at this point',
           data
         );
+        this.spinner.hide()
       },
       onCancel: (data, actions) => {
         console.log('OnCancel', data, actions);
@@ -120,6 +116,20 @@ export class CartComponent implements OnInit {
       this.total = this.getTotal(); // Recalcular el total después de agregar un ítem
       this.storageService.setCart(this.cartItems); // Actualizar el carrito en el almacenamiento
     });
+  }
+
+  getItemsList(): any[] {
+    const items: any[] = [];
+    let item = {};
+    this.cartItems.forEach((it: CartItemModel) => {
+      item = {
+        name: it.productNombre,
+        quantity: it.qty,
+        unit_amount: { value: it.productPrecio, currency_code: 'MXN' },
+      };
+      items.push(item);
+    });
+    return items;
   }
 
   // Calcular el total del carrito
