@@ -1,0 +1,7 @@
+{
+  "name": "biblio.apk",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
