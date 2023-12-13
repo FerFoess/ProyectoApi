@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^17.0.4",
     "@angular/router": "^17.0.4",
     "@angular/youtube-player": "^16.2.11",
+    "@awesome-cordova-plugins/in-app-browser": "^6.4.0",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "@types/googlemaps": "^3.43.3",
     "angular-oauth2-oidc": "^15.0.1",
