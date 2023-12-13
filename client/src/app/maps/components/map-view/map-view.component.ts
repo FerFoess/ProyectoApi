@@ -32,7 +32,7 @@ export class MapViewComponent implements AfterViewInit {
     const popupDefault = new mapboxgl.Popup()
       .setHTML(`
         <h6> Aquí estoy </h6>
-        <span> Este es mi lugar </span>
+        <span> Destino </span>
       `);
 
     const defaultCoordinates: [number, number] = [-100.9302854,21.1663086]; 
@@ -45,7 +45,7 @@ export class MapViewComponent implements AfterViewInit {
     const popupBlue = new mapboxgl.Popup()
       .setHTML(`
         <h6> Aquí está el marcador azul </h6>
-        <span> Este es otro lugar </span>
+        <span> Mi ubicación </span>
       `);
 
     const blueMarkerCoordinates: [number, number] = [this.placesService.useLocation[0], this.placesService.useLocation[1]]; // Coordenadas del marcador azul
